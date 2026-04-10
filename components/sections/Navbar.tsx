@@ -20,13 +20,13 @@ export function Navbar() {
         <div className="flex items-center gap-3 cursor-pointer shrink-0">
           <Image 
             src="/logo.png" 
-            alt="My Casting Portal Logo" 
+            alt="/logo.png" 
             width={140} 
             height={36} 
             className="object-contain w-28 sm:w-40" 
             priority
           />
-          
+
         </div>
         
         {/* Desktop Links */}
