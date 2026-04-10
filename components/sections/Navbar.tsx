@@ -26,6 +26,7 @@ export function Navbar() {
             className="object-contain w-28 sm:w-40" 
             priority
           />
+          
         </div>
         
         {/* Desktop Links */}
