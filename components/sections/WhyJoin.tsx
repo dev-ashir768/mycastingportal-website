@@ -6,88 +6,98 @@ import { Plus } from "lucide-react";
 
 export function WhyJoin() {
   return (
-    <section id="why-join" className="py-24 sm:py-32 md:py-48 bg-white relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          
-        <div className="mb-16 sm:mb-24 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-6 w-fit shadow-sm">
-              Value Proposition
+    <section id="why-join" className="py-32 sm:py-56 bg-white relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full ">
+        <div className="mb-24 sm:mb-32 flex flex-col md:flex-row md:justify-between md:items-end gap-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-red-50 border border-red-100/50 text-red-600 font-bold text-[10px] uppercase tracking-[0.4em] mb-8 shadow-sm">
+              Incentives
             </div>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.95] text-zinc-950">
-              Why Join <br className="hidden sm:block" /> 
-              <span className="text-red-600 border-b-[6px] border-red-600 pb-1">Now?</span>
+            <h2 className="text-6xl sm:text-8xl lg:text-[100px] font-black tracking-[-0.05em] leading-[0.85] text-zinc-950 lowercase">
+              why join <br />
+              <span className="text-red-600 underline decoration-[12px] decoration-red-600/10 underline-offset-[12px]">
+                now?
+              </span>
             </h2>
           </motion.div>
-          <motion.p 
-            initial={{ opacity: 0, x: 20 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
+          <motion.p
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="max-w-xs text-zinc-600 font-medium text-sm sm:text-base hidden lg:block pb-2"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="max-w-xs text-zinc-400 font-medium text-lg lg:text-xl hidden lg:block pb-5 leading-tight italic"
           >
-            Get ahead of the curve. Securing a premium profile early ensures massive algorithmic reach upon formal launch.
+            Seize the momentum. Early adoption translates to maximum algorithmic
+            authority.
           </motion.p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
               title: "Early Discovery",
-              desc: "Get discovered as an early actor on the platform before mass adoption.",
-              image: "/join_now_1.jpg"
+              desc: "Command attention before mass market saturation.",
+              image: "/join_now_1.jpg",
             },
             {
-              title: "First To Join",
-              desc: "Be among the elite first talents to curate your professional identity.",
-              image: "/join_now_2.jpg"
+              title: "Prime Authority",
+              desc: "Secure high-authority ranking for your casting ID.",
+              image: "/join_now_2.jpg",
             },
             {
-              title: "Priority Access",
-              desc: "Receive top priority placement when the official search engine launches.",
-              image: "/join_now_3.jpg"
+              title: "Direct Pipeline",
+              desc: "Get listed on verified director dashboards instantly.",
+              image: "/join_now_3.jpg",
             },
             {
-              title: "Exclusive Data",
-              desc: "Stay updated with exclusive opportunities tailored just for you.",
-              image: "/join_now_4.jpg"
-            }
+              title: "Insider Data",
+              desc: "Access proprietary industry opportunities before launch.",
+              image: "/join_now_4.jpg",
+            },
           ].map((item, index) => (
-            <motion.div 
+            <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
+              transition={{
+                delay: index * 0.15,
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               viewport={{ once: true }}
-              className="relative h-[350px] sm:h-[400px] lg:h-[500px] overflow-hidden group rounded-[2rem] shadow-lg border border-zinc-200"
+              className="relative h-[550px] sm:h-[650px] overflow-hidden group rounded-[3rem] sm:rounded-[4rem] shadow-2xl border border-zinc-100"
             >
-              <Image 
-                src={item.image} 
+              <Image
+                src={item.image}
                 alt={item.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                className="object-cover transition-all duration-[1.5s] ease-out group-hover:scale-110 sepia-[.05]"
+                className="object-cover transition-all duration-[2s] ease-out group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
               />
-              
-              {/* Deep immersive overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent group-hover:from-red-900/90 transition-colors duration-700" />
-              
-              <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                 
-                 <div className="bg-white/20 backdrop-blur-md w-12 h-12 rounded-full flex items-center justify-center text-white mb-6 transform -rotate-45 group-hover:rotate-0 transition-all duration-500 border border-white/20 group-hover:bg-red-600 group-hover:border-red-500">
-                    <Plus className="w-5 h-5" />
-                 </div>
-                 
-                 <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight mb-2">
-                   {item.title}
-                 </h3>
-                 <p className="text-zinc-300 text-sm font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mt-2">
-                   {item.desc}
-                 </p>
+
+              {/* Ultra-soft aesthetic gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:from-red-950/90 transition-all duration-1000" />
+
+              <div className="absolute inset-x-0 bottom-0 p-10 flex flex-col justify-end translate-y-6 group-hover:translate-y-0 transition-transform duration-700">
+                <div className="bg-white/10 backdrop-blur-xl w-14 h-14 rounded-full flex items-center justify-center text-white mb-8 border border-white/20 group-hover:bg-red-600 group-hover:border-red-500 shadow-xl transition-all duration-500">
+                  <Plus className="w-6 h-6" />
+                </div>
+
+                <h3 className="text-3xl font-black text-white tracking-tighter mb-4 lowercase">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-300 text-base sm:text-lg font-medium leading-tight opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                  {item.desc}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

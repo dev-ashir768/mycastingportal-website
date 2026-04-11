@@ -1,62 +1,69 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Film } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function Cta() {
+export function Cta({ onRegister }: { onRegister: () => void }) {
   return (
-    <section className="pb-24 sm:pb-32 md:pb-48 bg-[#fafafa] relative overflow-hidden">
+    <section className="pb-24 sm:pb-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-7xl">
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95, y: 30 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="w-full rounded-[2.5rem] sm:rounded-[3rem] bg-zinc-950 overflow-hidden relative shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-zinc-200/50"
+          className="w-full rounded-[3rem] bg-zinc-950 overflow-hidden relative shadow-2xl border border-white/5"
         >
-          {/* Aesthetic inner gradients */}
-          <div className="absolute top-[-20%] right-[-10%] w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-red-600/20 rounded-full blur-[100px] mix-blend-screen pointer-events-none" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-red-800/20 rounded-full blur-[80px] pointer-events-none" />
+          {/* Subtle ambient highlights */}
+          <div className="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-red-600/15 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[35vw] h-[35vw] bg-red-800/10 rounded-full blur-[120px] pointer-events-none" />
           
-          <div className="grid lg:grid-cols-12 relative z-10">
-            {/* Left Content Side */}
-            <div className="lg:col-span-6 xl:col-span-5 p-10 sm:p-14 lg:p-16 xl:p-20 flex flex-col justify-center relative z-30">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-500/20 text-red-500 font-bold text-[10px] uppercase tracking-[0.2em] w-fit mb-8 backdrop-blur-md">
-                <Film className="w-3 h-3" /> Final Call
+          <div className="grid lg:grid-cols-2 relative z-10 min-h-[500px] sm:min-h-[600px]">
+            {/* Direct Billboard Content */}
+            <div className="p-10 sm:p-16 xl:p-20 flex flex-col justify-center relative z-30">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-red-500 font-bold text-[10px] uppercase tracking-[0.3em] w-fit mb-8 backdrop-blur-3xl shadow-2xl">
+                <Sparkles className="w-3.5 h-3.5" /> Priority Access
               </div>
               
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[1] text-white mb-6">
-                Your Next Role <br className="hidden lg:block" /> 
-                Starts <span className="text-red-500 selection:bg-red-600 selection:text-white">Here.</span>
+              <h2 className="text-5xl sm:text-6xl xl:text-[80px] font-black tracking-[-0.05em] leading-[0.9] text-white mb-8 lowercase">
+                your next <br /> 
+                role starts <br />
+                <span className="text-red-600 underline decoration-[10px] decoration-red-600/20 underline-offset-[12px]">here.</span>
               </h2>
               
-              <p className="text-zinc-400 text-sm sm:text-base font-medium leading-relaxed mb-10 max-w-md">
-                Join a thriving network of professionals. Create your portfolio, get discovered, and take the first step toward your next opportunity. The spotlight is waiting.
+              <p className="text-zinc-400 text-base sm:text-xl font-medium leading-relaxed mb-10 max-w-sm tracking-tight">
+                Stop waiting for opportunities. Create them. Join the new standard of talent discovery.
               </p>
               
-              <Button size="lg" className="w-full sm:w-auto self-start bg-red-600 hover:bg-red-500 text-white px-10 h-14 sm:h-16 text-[11px] sm:text-xs font-black tracking-[0.2em] uppercase rounded-full group transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_30px_rgba(220,38,38,0.5)]">
-                Register Now <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              <Button 
+                size="lg" 
+                onClick={onRegister}
+                className="w-full sm:w-auto self-start bg-red-600 hover:bg-white hover:text-red-600 text-white px-10 h-14 sm:h-16 rounded-full text-[11px] font-black uppercase tracking-[0.25em] shadow-xl transition-all duration-300"
+              >
+                Get Started <ArrowRight className="ml-2.5 w-4 h-4" />
               </Button>
             </div>
             
-            {/* Right Aesthetic Side (Video Box) */}
-            <div className="lg:col-span-6 xl:col-span-7 relative min-h-[350px] sm:min-h-[400px] lg:min-h-full">
-               <div className="absolute inset-0 bg-red-600/5 mix-blend-overlay z-10" />
+            {/* Visual Side */}
+            <div className="relative min-h-[350px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-white/5">
                <video 
                  autoPlay 
                  loop 
                  muted 
                  playsInline 
-                 className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 scale-105"
+                 className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125 transition-transform duration-[10s] hover:scale-105"
                >
                  <source src="/camera.mp4" type="video/mp4" />
                </video>
                
-               {/* Sleek fade gradients to blend the video into the black card smoothly */}
-               {/* <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-20 hidden lg:block" /> */}
-               {/* <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-zinc-950 to-transparent z-20 lg:hidden" /> */}
+               <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-zinc-950 to-transparent z-20 hidden lg:block" />
+               <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-zinc-950 to-transparent z-20 lg:hidden" />
+               
+               <div className="absolute bottom-10 right-10 z-30 opacity-10">
+                  <h3 className="text-5xl font-black tracking-tighter text-white">mcp.</h3>
+               </div>
             </div>
           </div>
         </motion.div>

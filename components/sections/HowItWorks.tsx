@@ -5,78 +5,92 @@ import { UserPlus, Search, PlayCircle } from "lucide-react";
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 sm:py-32 md:py-48 bg-[#fafafa] relative overflow-hidden border-y border-zinc-200/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          
-        <div className="flex flex-col mb-16 sm:mb-28 text-center items-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="text-red-600 font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-4 block">The Process</span>
-            <h2 className="text-4xl sm:text-6xl lg:text-[75px] font-black tracking-tighter leading-[1] text-zinc-950 max-w-4xl mx-auto">
-              A seamless path from <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500 drop-shadow-sm">profile to production.</span>
+    <section
+      id="how-it-works"
+      className="py-32 sm:py-56 bg-zinc-50/50 relative overflow-hidden border-y border-zinc-100"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full ">
+        <div className="flex flex-col mb-24 sm:mb-36 text-center items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="text-red-600 font-bold text-[11px] uppercase tracking-[0.4em] mb-6 block">
+              The Protocol
+            </span>
+            <h2 className="text-5xl sm:text-7xl lg:text-[100px] font-black tracking-[-0.05em] leading-[0.9] text-zinc-950 max-w-5xl mx-auto lowercase">
+              Designed for <br />
+              <span className="text-zinc-400">speed and scale.</span>
             </h2>
           </motion.div>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Subtle Connecting Line for Timeline */}
-          <div className="hidden md:block absolute top-[3.5rem] left-[15%] right-[15%] h-px bg-zinc-200" />
-          
-          <div className="grid md:grid-cols-3 gap-12 sm:gap-16 relative z-10">
+          <div className="grid md:grid-cols-3 gap-16 sm:gap-24 relative z-10">
             {[
-              { 
-                step: "1",
-                title: "Build Your Profile", 
-                desc: "Actors easily create a high-end portfolio, uploading headshots, measurements, and showreels to our platform.", 
+              {
+                step: "01",
+                title: "identity creation",
+                desc: "Actors scale their presence by building high-fidelity portfolios that resonate with modern casting needs.",
                 icon: UserPlus,
-                isActive: false
+                isActive: false,
               },
-              { 
-                step: "2",
-                title: "Get Discovered", 
-                desc: "Casting Directors leverage our powerful search engine to filter specific traits and instantly find exact matches.", 
+              {
+                step: "02",
+                title: "smart discovery",
+                desc: "Proprietary search algorithms allow directors to slice through noise and find exact character archetypes in seconds.",
                 icon: Search,
-                isActive: false
+                isActive: false,
               },
-              { 
-                step: "3",
-                title: "Book The Role", 
-                desc: "Direct communication removes friction. Directors connect with talent directly to finalize auditions and booking.", 
+              {
+                step: "03",
+                title: "direct booking",
+                desc: "Remove the middleware. Direct secure channels connect the boardroom to the soundstage instantly.",
                 icon: PlayCircle,
-                isActive: true
-              }
+                isActive: true,
+              },
             ].map((feature, idx) => (
-              <motion.div 
-                key={idx} 
-                initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.2 }}
+                transition={{
+                  duration: 0.8,
+                  delay: idx * 0.2,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="flex flex-col items-center text-center group"
               >
-                 {/* Premium Floating Icon Box */}
-                 <div className={`w-28 h-28 sm:w-32 sm:h-32 rounded-[2rem] bg-white border shadow-xl flex items-center justify-center mb-10 relative z-10 group-hover:-translate-y-3 transition-transform duration-500 ${feature.isActive ? 'border-red-600 shadow-[0_20px_40px_-15px_rgba(220,38,38,0.3)]' : 'border-zinc-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]'}`}>
-                   
-                   <feature.icon className={`w-10 h-10 transition-colors duration-500 ${feature.isActive ? 'text-red-600' : 'text-zinc-700 group-hover:text-red-600'}`} strokeWidth={1.5} />
-                   
-                   {/* Step Number Indicator */}
-                   <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-zinc-950 text-white flex items-center justify-center text-xs font-black shadow-md border-[3px] border-[#fafafa]">
-                     {feature.step}
-                   </div>
-                 </div>
-                 
-                 <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-4 text-zinc-950">
-                   {feature.title}
-                 </h3>
-                 
-                 <p className="text-zinc-600 text-base font-medium leading-relaxed max-w-xs">
-                   {feature.desc}
-                 </p>
+                <div className="relative mb-12">
+                  {/* Massive ghost numbers for US Premium look */}
+                  <span className="absolute -top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-zinc-200/40 select-none group-hover:text-red-600/10 transition-colors duration-700">
+                    {feature.step}
+                  </span>
+
+                  <div
+                    className={`w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white border flex items-center justify-center relative translate-y-4 group-hover:-translate-y-2 transition-transform duration-700 ${feature.isActive ? "border-red-600 shadow-2xl shadow-red-500/20" : "border-zinc-200 shadow-xl"}`}
+                  >
+                    <feature.icon
+                      className={`w-10 h-10 sm:w-12 sm:h-12 transition-colors duration-500 ${feature.isActive ? "text-red-600" : "text-zinc-400 group-hover:text-red-600"}`}
+                      strokeWidth={1}
+                    />
+                  </div>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-6 text-zinc-950 lowercase">
+                  {feature.title}
+                </h3>
+
+                <p className="text-zinc-500 text-base sm:text-lg font-medium leading-relaxed max-w-xs transition-colors group-hover:text-zinc-600">
+                  {feature.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

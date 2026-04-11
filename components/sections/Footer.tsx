@@ -14,7 +14,7 @@ export function Footer() {
       {/* Subtle Matrix dot grid for premium texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
           
           {/* Column 1: Brand & Socials */}
