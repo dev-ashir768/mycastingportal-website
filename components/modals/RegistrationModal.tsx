@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
-  User,
-  Briefcase,
-  Camera,
   ArrowRight,
   CheckCircle2,
   Eye,
@@ -17,12 +14,13 @@ import {
   Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getRoles, registerUser } from "@/lib/api";
+import type { Role } from "@/types/api";
 
-// Form Schema
+// ─── Schema ──────────────────────────────────────────────────────────────────
+
 const registrationSchema = z.object({
-  role: z.enum(["talent", "agent", "director"], {
-    message: "Please select a role",
-  }),
+  roleId: z.string().min(1, "Please select a role"),
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
@@ -30,15 +28,24 @@ const registrationSchema = z.object({
 
 type RegistrationData = z.infer<typeof registrationSchema>;
 
+// ─── Props ───────────────────────────────────────────────────────────────────
+
 interface RegistrationModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+// ─── Component ───────────────────────────────────────────────────────────────
+
 export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const [roles, setRoles] = useState<Role[]>([]);
+  const [rolesLoading, setRolesLoading] = useState(false);
+  const [rolesError, setRolesError] = useState<string | null>(null);
 
   const {
     register,
@@ -50,26 +57,47 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
   } = useForm<RegistrationData>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
-      role: undefined,
+      roleId: "",
       fullName: "",
       email: "",
       password: "",
     },
   });
 
-  const selectedRole = useWatch({ control, name: "role" });
+  const selectedRoleId = useWatch({ control, name: "roleId" });
+
+  // Fetch roles when modal opens
+  useEffect(() => {
+    if (!isOpen) return;
+    setRolesLoading(true);
+    setRolesError(null);
+    getRoles()
+      .then((res) => setRoles(res.data))
+      .catch((err: Error) => setRolesError(err.message))
+      .finally(() => setRolesLoading(false));
+  }, [isOpen]);
 
   const onSubmit = async (data: RegistrationData) => {
     setIsSubmitting(true);
-    console.log("Form Values:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setStep(3);
+    setSubmitError(null);
+    try {
+      await registerUser({
+        fullName: data.fullName,
+        email: data.email,
+        password: data.password,
+        roleId: data.roleId,
+      });
+      setStep(3);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Registration failed");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = async () => {
     if (step === 1) {
-      const isValid = await trigger("role");
+      const isValid = await trigger("roleId");
       if (isValid) setStep(2);
     } else if (step === 2) {
       const isValid = await trigger(["fullName", "email", "password"]);
@@ -91,7 +119,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
         exit={{ opacity: 0, scale: 0.98, y: 10 }}
         className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden border border-zinc-200"
       >
-        {/* Compact Header */}
+        {/* Header */}
         <div className="relative p-5 px-6 flex justify-between items-center border-b border-zinc-100 bg-zinc-50/50">
           <div className="flex gap-1.5">
             {[1, 2, 3].map((s) => (
@@ -115,9 +143,11 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
           </button>
         </div>
 
-        {/* Compact Content */}
+        {/* Content */}
         <div className="relative p-6 sm:p-8 min-h-[380px] flex flex-col justify-center">
           <AnimatePresence mode="wait">
+
+            {/* ── Step 1: Select Role ── */}
             {step === 1 && (
               <motion.div
                 key="step1"
@@ -136,70 +166,78 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                 </div>
 
                 <div className="space-y-2">
-                  {[
-                    {
-                      id: "talent",
-                      title: "Talent",
-                      desc: "Actor, model, performer",
-                      icon: User,
-                    },
-                    {
-                      id: "agent",
-                      title: "Agent / Manager",
-                      desc: "Represent and submit clients",
-                      icon: Briefcase,
-                    },
-                    {
-                      id: "director",
-                      title: "Casting Director",
-                      desc: "Find and discover talent",
-                      icon: Camera,
-                    },
-                  ].map((role) => (
-                    <button
-                      key={role.id}
-                      onClick={() =>
-                        setValue(
-                          "role",
-                          (role.id as "talent") || "agent" || "director",
-                        )
-                      }
-                      className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 group flex items-center gap-4 ${
-                        selectedRole === role.id
-                          ? "bg-red-50 border-red-600 shadow-sm"
-                          : "bg-zinc-50 border-transparent hover:border-zinc-200 hover:bg-zinc-100"
-                      }`}
-                    >
-                      <div
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
-                          selectedRole === role.id
-                            ? "bg-red-600 text-white shadow-md"
-                            : "bg-white text-zinc-400 border border-zinc-200"
+                  {rolesLoading && (
+                    <div className="flex items-center justify-center py-6">
+                      <Loader2 className="w-5 h-5 animate-spin text-zinc-400" />
+                    </div>
+                  )}
+
+                  {rolesError && (
+                    <p className="text-red-600 text-[11px] font-bold text-center uppercase">
+                      {rolesError}
+                    </p>
+                  )}
+
+                  {!rolesLoading &&
+                    !rolesError &&
+                    roles.map((role) => (
+                      <button
+                        key={role.id}
+                        onClick={() => setValue("roleId", role.id)}
+                        className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex items-center gap-4 ${
+                          selectedRoleId === role.id
+                            ? "bg-red-50 border-red-600 shadow-sm"
+                            : "bg-zinc-50 border-transparent hover:border-zinc-200 hover:bg-zinc-100"
                         }`}
                       >
-                        <role.icon className="w-4 h-4" strokeWidth={2} />
-                      </div>
-                      <div>
-                        <h4
-                          className={`text-sm font-bold transition-colors ${selectedRole === role.id ? "text-red-600" : "text-zinc-900"}`}
+                        {/* Selection indicator */}
+                        <div
+                          className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all ${
+                            selectedRoleId === role.id
+                              ? "bg-red-600 shadow-md"
+                              : "bg-white border border-zinc-200"
+                          }`}
                         >
-                          {role.title}
-                        </h4>
-                        <p className="text-[11px] text-zinc-500 font-medium">
-                          {role.desc}
-                        </p>
-                      </div>
-                    </button>
-                  ))}
-                  {errors.role && (
+                          <span
+                            className={`text-sm font-black uppercase ${
+                              selectedRoleId === role.id
+                                ? "text-white"
+                                : "text-zinc-400"
+                            }`}
+                          >
+                            {role.name.charAt(0)}
+                          </span>
+                        </div>
+
+                        <div>
+                          <h4
+                            className={`text-sm font-bold transition-colors capitalize ${
+                              selectedRoleId === role.id
+                                ? "text-red-600"
+                                : "text-zinc-900"
+                            }`}
+                          >
+                            {role.name}
+                          </h4>
+                          {role.description && (
+                            <p className="text-[11px] text-zinc-500 font-medium">
+                              {role.description}
+                            </p>
+                          )}
+                        </div>
+                      </button>
+                    ))}
+
+                  {errors.roleId && (
                     <p className="text-red-600 text-[10px] font-bold mt-2 text-center uppercase">
-                      {errors.role.message}
+                      {errors.roleId.message}
                     </p>
                   )}
                 </div>
               </motion.div>
             )}
 
+            {/* ── Step 2: Account Details ── */}
             {step === 2 && (
               <motion.div
                 key="step2"
@@ -281,10 +319,17 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                       </p>
                     )}
                   </div>
+
+                  {submitError && (
+                    <p className="text-red-600 text-[10px] font-bold text-center uppercase bg-red-50 py-2 px-3 rounded-lg border border-red-200">
+                      {submitError}
+                    </p>
+                  )}
                 </div>
               </motion.div>
             )}
 
+            {/* ── Step 3: Success ── */}
             {step === 3 && (
               <motion.div
                 key="step3"
@@ -309,7 +354,10 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                   Welcome to the portal.
                 </p>
 
-                <Button className="w-full bg-red-600 hover:bg-zinc-950 text-white h-12 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg">
+                <Button
+                  onClick={onClose}
+                  className="w-full bg-red-600 hover:bg-zinc-950 text-white h-12 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg"
+                >
                   Launch Dashboard <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </motion.div>
@@ -317,7 +365,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
           </AnimatePresence>
         </div>
 
-        {/* Compact Footer */}
+        {/* Footer */}
         {step < 3 && (
           <div className="relative p-5 px-6 border-t border-zinc-100 flex justify-between items-center bg-zinc-50/20">
             {step > 1 ? (
@@ -333,7 +381,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
 
             <Button
               onClick={nextStep}
-              disabled={isSubmitting}
+              disabled={isSubmitting || rolesLoading}
               className="bg-zinc-950 hover:bg-red-600 text-white h-11 px-8 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-md transition-all duration-300"
             >
               {isSubmitting ? (
