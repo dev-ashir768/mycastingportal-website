@@ -33,11 +33,12 @@ type RegistrationData = z.infer<typeof registrationSchema>;
 interface RegistrationModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onLaunch: () => void;
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
-export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
+export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationModalProps) {
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -355,7 +356,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                 </p>
 
                 <Button
-                  onClick={onClose}
+                  onClick={onLaunch}
                   className="w-full bg-red-600 hover:bg-zinc-950 text-white h-12 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg"
                 >
                   Launch Dashboard <ArrowRight className="ml-2 w-4 h-4" />

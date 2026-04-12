@@ -30,9 +30,10 @@ export default function LandingPage() {
 
       <Footer />
 
-      <RegistrationModal 
-        isOpen={isRegistrationOpen} 
-        onClose={() => setIsRegistrationOpen(false)} 
+      <RegistrationModal
+        isOpen={isRegistrationOpen}
+        onClose={() => setIsRegistrationOpen(false)}
+        onLaunch={() => (window.location.href = "http://2.24.192.30:3001")}
       />
     </div>
   );
