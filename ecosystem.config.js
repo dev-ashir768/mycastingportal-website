@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "mycastingportal-website",
       script: "node_modules/next/dist/bin/next",
-      args: "start -p 3002",
+      args: "start -p 3000",
       instances: 1,     
       exec_mode: "cluster",
       watch: false,
