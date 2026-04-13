@@ -38,7 +38,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
               <Button
                 size="lg"
                 onClick={onRegister}
-                className="w-full sm:w-auto bg-zinc-950 hover:bg-red-600 text-white px-8 sm:px-10 h-13 sm:h-14 text-[10px] font-black tracking-[0.2em] uppercase rounded-full group transition-all duration-300 shadow-xl"
+                className="w-full sm:w-auto bg-zinc-950 hover:bg-red-600 text-white px-8 sm:px-10 h-13 sm:h-14 text-[10px] font-black tracking-[0.2em] uppercase rounded-full group transition-all duration-300 shadow-xl cursor-pointer"
               >
                 Join Early Access{" "}
                 <ArrowRight className="ml-2.5 w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -46,7 +46,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-950 px-8 h-13 sm:h-14 text-[10px] font-black tracking-[0.2em] uppercase rounded-full transition-all duration-300"
+                className="w-full sm:w-auto border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-950 px-8 h-13 sm:h-14 text-[10px] font-black tracking-[0.2em] uppercase rounded-full transition-all duration-300 cursor-pointer"
               >
                 <PlayCircle className="mr-2.5 w-4 h-4 text-red-600" /> View Reel
               </Button>

@@ -58,7 +58,7 @@ export function Navbar({ onRegister }: { onRegister: () => void }) {
 
           <button 
             onClick={onRegister}
-            className={`px-6 py-2.5 rounded-full text-[9px] font-black tracking-[0.25em] uppercase shadow-xl transition-all duration-500 hover:-translate-y-0.5 active:scale-95 ${isScrolled ? 'bg-white text-red-600' : 'bg-red-600 text-white hover:bg-zinc-950 shadow-red-500/20'}`}
+            className={`px-6 py-2.5 cursor-pointer rounded-full text-[9px] font-black tracking-[0.25em] uppercase shadow-xl transition-all duration-500 hover:-translate-y-0.5 active:scale-95 ${isScrolled ? 'bg-white text-red-600' : 'bg-red-600 text-white hover:bg-zinc-950 shadow-red-500/20'}`}
           >
             Join Portal
           </button>
@@ -68,12 +68,12 @@ export function Navbar({ onRegister }: { onRegister: () => void }) {
         <div className="flex lg:hidden items-center gap-3">
           <button 
             onClick={onRegister}
-            className={`px-5 py-2.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all shadow-lg ${isScrolled ? 'bg-white text-red-600' : 'bg-red-600 text-white'}`}
+            className={`px-5 py-2.5 cursor-pointer rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all shadow-lg ${isScrolled ? 'bg-white text-red-600' : 'bg-red-600 text-white'}`}
           >
             Join
           </button>
           <button 
-            className={`flex items-center justify-center w-11 h-11 rounded-full transition-all duration-500 ${isScrolled ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-zinc-100 text-zinc-900 hover:bg-red-50 hover:text-red-600'}`}
+            className={`flex items-center cursor-pointer justify-center w-11 h-11 rounded-full transition-all duration-500 ${isScrolled ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-zinc-100 text-zinc-900 hover:bg-red-50 hover:text-red-600'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

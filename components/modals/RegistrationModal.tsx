@@ -138,7 +138,7 @@ export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationMod
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-red-600 transition-all shadow-sm"
+            className="w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-red-600 transition-all shadow-sm cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -185,7 +185,7 @@ export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationMod
                       <button
                         key={role.id}
                         onClick={() => setValue("roleId", role.id)}
-                        className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex items-center gap-4 ${
+                        className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex items-center gap-4 cursor-pointer ${
                           selectedRoleId === role.id
                             ? "bg-red-50 border-red-600 shadow-sm"
                             : "bg-zinc-50 border-transparent hover:border-zinc-200 hover:bg-zinc-100"
@@ -305,7 +305,7 @@ export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationMod
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-red-600 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-red-600 transition-colors    cursor-pointer"
                       >
                         {showPassword ? (
                           <EyeOff className="w-4 h-4" />
@@ -357,7 +357,7 @@ export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationMod
 
                 <Button
                   onClick={onLaunch}
-                  className="w-full bg-red-600 hover:bg-zinc-950 text-white h-12 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg"
+                  className="w-full bg-red-600 hover:bg-zinc-950 text-white h-12 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg cursor-pointer"
                 >
                   Launch Dashboard <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -372,7 +372,7 @@ export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationMod
             {step > 1 ? (
               <button
                 onClick={prevStep}
-                className="text-zinc-400 hover:text-red-600 transition-all text-[10px] font-bold uppercase tracking-widest"
+                className="text-zinc-400 hover:text-red-600 transition-all text-[10px] font-bold uppercase tracking-widest cursor-pointer"
               >
                 Back
               </button>
@@ -383,7 +383,7 @@ export function RegistrationModal({ isOpen, onClose, onLaunch }: RegistrationMod
             <Button
               onClick={nextStep}
               disabled={isSubmitting || rolesLoading}
-              className="bg-zinc-950 hover:bg-red-600 text-white h-11 px-8 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-md transition-all duration-300"
+              className="bg-zinc-950 hover:bg-red-600 text-white h-11 px-8 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-md transition-all duration-300 cursor-pointer"
             >
               {isSubmitting ? (
                 <Loader2 className="w-3 h-3 animate-spin" />

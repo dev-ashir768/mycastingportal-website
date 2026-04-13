@@ -40,7 +40,7 @@ export function Cta({ onRegister }: { onRegister: () => void }) {
               <Button
                 size="lg"
                 onClick={onRegister}
-                className="w-full sm:w-auto self-start bg-red-600 hover:bg-white hover:text-red-600 text-white px-8 sm:px-10 h-13 sm:h-14 lg:h-16 rounded-full text-[11px] font-black uppercase tracking-[0.25em] shadow-xl transition-all duration-300"
+                className="w-full sm:w-auto self-start bg-red-600 hover:bg-white hover:text-red-600 text-white px-8 sm:px-10 h-13 sm:h-14 lg:h-16 rounded-full text-[11px] font-black uppercase tracking-[0.25em] shadow-xl transition-all duration-300 cursor-pointer"
               >
                 Get Started <ArrowRight className="ml-2.5 w-4 h-4" />
               </Button>
