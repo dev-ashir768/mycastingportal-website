@@ -33,7 +33,7 @@ export default function LandingPage() {
       <RegistrationModal
         isOpen={isRegistrationOpen}
         onClose={() => setIsRegistrationOpen(false)}
-        onLaunch={() => (window.location.href = "http://2.24.192.30:3001")}
+        onLaunch={() => (window.location.href = "https://app.mycastingportal.com/")}
       />
     </div>
   );
