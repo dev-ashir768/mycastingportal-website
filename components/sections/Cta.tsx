@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export function Cta({ onRegister }: { onRegister: () => void }) {
   return (
-    <section className="pb-16 sm:pb-24 lg:pb-32 bg-white relative overflow-hidden">
+    <section className="pb-12 sm:pb-20 lg:pb-28 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-7xl">
 
         <motion.div

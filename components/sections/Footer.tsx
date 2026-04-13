@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-zinc-950 relative overflow-hidden pt-16 sm:pt-24 lg:pt-32 pb-8 text-white border-t-8 border-red-600">
+    <footer className="bg-zinc-950 relative overflow-hidden pt-12 sm:pt-20 lg:pt-28 pb-8 text-white border-t-8 border-red-600">
 
       {/* Aesthetic Red Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[300px] sm:h-[400px] bg-red-600/10 blur-[120px] pointer-events-none" />
