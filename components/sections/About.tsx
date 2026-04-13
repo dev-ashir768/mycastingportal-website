@@ -20,7 +20,7 @@ export function About() {
               Our Vision
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-[72px] xl:text-[84px] font-black tracking-[-0.03em] mb-6 leading-[1.1] sm:leading-[1.0] lg:leading-[0.92] text-zinc-950 lowercase">
+            <h2 className="text-5xl lg:text-[72px] xl:text-[84px] font-black tracking-[-0.03em] mb-6 leading-[1.1] sm:leading-[1.0] lg:leading-[0.92] text-zinc-950 ">
               Digital <br />
               curation <br />
               <span className="text-red-400">redefined.</span>
@@ -36,7 +36,7 @@ export function About() {
               {/* Premium Quote */}
               <div className="p-6 sm:p-8 bg-zinc-50 rounded-[1.5rem] sm:rounded-[2.5rem] border border-zinc-100 relative group overflow-hidden transition-all duration-700 hover:bg-zinc-100/50 hover:border-zinc-200">
                 <div className="absolute top-0 left-0 w-1.5 h-full bg-red-600 rounded-r-full" />
-                <p className="text-zinc-950 text-base sm:text-lg font-black leading-snug tracking-tight lowercase italic">
+                <p className="text-zinc-950 text-base sm:text-lg font-black leading-snug tracking-tight  italic">
                   &quot;Bridging the gap between pure passion and professional
                   production through a seamless digital gateway.&quot;
                 </p>
@@ -80,7 +80,7 @@ export function About() {
                     <span className="text-[9px] font-black text-red-500 uppercase tracking-[0.3em] block mb-0.5">
                       Global Standard
                     </span>
-                    <span className="text-white font-bold text-sm sm:text-base tracking-tight lowercase">
+                    <span className="text-white font-bold text-sm sm:text-base tracking-tight ">
                       Industry Grade Tech
                     </span>
                   </div>

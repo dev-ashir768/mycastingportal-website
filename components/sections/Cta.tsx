@@ -27,8 +27,8 @@ export function Cta({ onRegister }: { onRegister: () => void }) {
                 <Sparkles className="w-3.5 h-3.5" /> Priority Access
               </div>
 
-              <h2 className="text-4xl sm:text-5xl xl:text-[80px] font-black tracking-[-0.04em] leading-[1.05] sm:leading-[0.95] lg:leading-[0.9] text-white mb-6 sm:mb-8 lowercase">
-                your next <br />
+              <h2 className="text-5xl xl:text-[80px] font-black leading-[1.05] sm:leading-[0.95] lg:leading-[0.9] text-white mb-6 sm:mb-8 ">
+                Your next <br />
                 role starts <br />
                 <span className="text-red-600 underline decoration-[8px] sm:decoration-[10px] decoration-red-600/20 underline-offset-[10px] sm:underline-offset-[12px]">here.</span>
               </h2>

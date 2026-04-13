@@ -18,8 +18,8 @@ export function WhyJoin() {
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-red-50 border border-red-100/50 text-red-600 font-bold text-[10px] uppercase tracking-[0.4em] mb-5 shadow-sm">
               Incentives
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-[72px] xl:text-[90px] font-black tracking-[-0.04em] leading-[1.1] sm:leading-[1.0] lg:leading-[0.9] text-zinc-950 lowercase">
-              why join <br />
+            <h2 className="text-5xl lg:text-[72px] xl:text-[90px] font-black text-zinc-950 ">
+              Why join <br />
               <span className="text-red-600 underline decoration-[6px] sm:decoration-[10px] decoration-red-600/10 underline-offset-[6px] sm:underline-offset-[10px]">
                 now?
               </span>
@@ -88,7 +88,7 @@ export function WhyJoin() {
                   <Plus className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                 </div>
 
-                <h3 className="text-sm sm:text-lg lg:text-2xl font-black text-white tracking-tight mb-1 sm:mb-2 lowercase leading-tight">
+                <h3 className="text-sm sm:text-lg lg:text-2xl font-black text-white tracking-tight mb-1 sm:mb-2  leading-tight">
                   {item.title}
                 </h3>
                 <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-tight hidden sm:block opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">

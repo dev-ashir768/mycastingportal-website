@@ -20,7 +20,7 @@ export function HowItWorks() {
             <span className="text-red-600 font-bold text-[11px] uppercase tracking-[0.4em] mb-3 sm:mb-4 block">
               The Protocol
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-[72px] xl:text-[90px] font-black tracking-[-0.04em] leading-[1.1] sm:leading-[1.0] lg:leading-[0.92] text-zinc-950 max-w-4xl mx-auto lowercase">
+            <h2 className="text-5xl lg:text-[72px] xl:text-[90px] font-black leading-[1.1] sm:leading-[1.0] lg:leading-[0.92] text-zinc-950 max-w-4xl mx-auto ">
               Designed for <br />
               <span className="text-zinc-400">speed and scale.</span>
             </h2>
@@ -32,21 +32,21 @@ export function HowItWorks() {
             {[
               {
                 step: "01",
-                title: "identity creation",
+                title: "Identity Creation",
                 desc: "Actors scale their presence by building high-fidelity portfolios that resonate with modern casting needs.",
                 icon: UserPlus,
                 isActive: false,
               },
               {
                 step: "02",
-                title: "smart discovery",
+                title: "Smart Discovery",
                 desc: "Proprietary search algorithms allow directors to slice through noise and find exact character archetypes in seconds.",
                 icon: Search,
                 isActive: false,
               },
               {
                 step: "03",
-                title: "direct booking",
+                title: "Direct Booking",
                 desc: "Remove the middleware. Direct secure channels connect the boardroom to the soundstage instantly.",
                 icon: PlayCircle,
                 isActive: true,
@@ -79,7 +79,7 @@ export function HowItWorks() {
                   </div>
                 </div>
 
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-black tracking-tight mb-3 text-zinc-950 lowercase">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-black tracking-tight mb-3 text-zinc-950 ">
                   {feature.title}
                 </h3>
 

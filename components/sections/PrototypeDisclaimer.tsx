@@ -10,13 +10,12 @@ export function PrototypeDisclaimer() {
       {/* Background Mesh */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-red-50/40 via-white to-white pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div
            initial={{ opacity: 0, y: 24 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-           className="max-w-6xl mx-auto"
         >
           <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-7 sm:p-12 lg:p-16 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.07)] border border-zinc-100 relative overflow-hidden flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20">
 
@@ -28,15 +27,15 @@ export function PrototypeDisclaimer() {
                <Badge className="mb-4 bg-red-50 border-red-200 text-red-600 font-black tracking-[0.4em] text-[10px] uppercase w-fit px-4 py-1.5 shadow-sm pointer-events-none">
                  Phase 01
                </Badge>
-               <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black text-zinc-950 leading-[1.1] sm:leading-[1.0] lg:leading-[0.92] tracking-tight lowercase">
-                 development <br />
-                 <span className="text-zinc-300">protocol.</span>
+               <h3 className="text-5xl lg:text-6xl font-black text-zinc-950 leading-[1.1] sm:leading-[1.0] lg:leading-[0.92] tracking-tight ">
+                 Development <br />
+                 <span className="text-zinc-300">Protocol.</span>
                </h3>
             </div>
 
             {/* Right Side */}
             <div className="w-full lg:w-3/5 space-y-5 sm:space-y-6 text-zinc-500 font-medium text-sm sm:text-base lg:text-xl leading-relaxed text-center lg:text-left">
-              <p className="text-zinc-950 font-black text-lg sm:text-xl lg:text-2xl tracking-tight leading-tight lowercase">
+              <p className="text-zinc-950 font-black text-lg sm:text-xl lg:text-2xl tracking-tight leading-tight ">
                 Our platform is currently in high-fidelity prototyping.
               </p>
               <p>

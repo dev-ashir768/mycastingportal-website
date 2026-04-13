@@ -68,16 +68,16 @@ export function Footer() {
           <div className="text-zinc-500 text-[10px] sm:text-xs font-bold uppercase tracking-widest border border-zinc-800 bg-zinc-900/50 px-4 py-2 rounded-full text-center">
             © {new Date().getFullYear()} My Casting Portal. All rights reserved.
           </div>
-          <div className="flex items-center gap-5 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500">
+          {/* <div className="flex items-center gap-5 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
+          </div> */}
         </div>
       </div>
 
       {/* PORTAL watermark — safely clipped inside overflow-hidden footer */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[22vw] sm:text-[18vw] font-black text-zinc-900 whitespace-nowrap pointer-events-none select-none tracking-tighter w-full text-center leading-none translate-y-[30%]">
-        PORTAL
+        CASTING
       </div>
     </footer>
   );

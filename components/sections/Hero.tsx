@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function Hero({ onRegister }: { onRegister: () => void }) {
   return (
-    <section className="relative min-h-svh sm:min-h-[90svh] flex items-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 justify-center overflow-hidden bg-white">
+    <section className="relative min-h-svh sm:min-h-[90svh] flex items-center pt-30 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 justify-center overflow-hidden bg-white">
       {/* Subtle Background */}
       <div className="absolute top-[-5%] left-[-5%] w-[40vw] h-[40vw] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#f0f0f0_1.5px,transparent_1.5px)] bg-size-[32px_32px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] opacity-70" />
@@ -24,7 +24,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
               Next-Gen Casting Ecosystem
             </div>
 
-            <h1 className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[84px] font-black tracking-[-0.03em] leading-[1.05] sm:leading-[0.98] lg:leading-[0.92] text-zinc-950 mb-5 sm:mb-6 lowercase w-full">
+            <h1 className="text-5xl md:text-6xl lg:text-[72px] xl:text-[84px] font-black leading-[1.05] sm:leading-[0.98] lg:leading-[0.92] text-zinc-950 mb-5 sm:mb-6  w-full">
               Where talent <br />
               <span className="text-red-600">shines.</span>
             </h1>
@@ -77,7 +77,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
                     <span className="text-[9px] font-black text-red-600 uppercase tracking-widest block mb-0.5">
                       Spotlight
                     </span>
-                    <span className="text-zinc-950 font-black text-base tracking-tight lowercase">
+                    <span className="text-zinc-950 font-black text-base tracking-tight ">
                       Sarah Jenkins
                     </span>
                   </div>
@@ -122,7 +122,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
                   <span className="text-[8px] font-black text-red-600 uppercase tracking-widest block">
                     Spotlight
                   </span>
-                  <span className="text-zinc-950 font-black text-sm tracking-tight lowercase">
+                  <span className="text-zinc-950 font-black text-sm tracking-tight ">
                     Sarah Jenkins
                   </span>
                 </div>
