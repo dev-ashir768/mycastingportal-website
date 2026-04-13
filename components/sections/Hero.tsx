@@ -7,10 +7,10 @@ import Image from "next/image";
 
 export function Hero({ onRegister }: { onRegister: () => void }) {
   return (
-    <section className="relative min-h-[100svh] sm:min-h-[90svh] flex items-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 justify-center overflow-hidden bg-white">
+    <section className="relative min-h-svh sm:min-h-[90svh] flex items-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 justify-center overflow-hidden bg-white">
       {/* Subtle Background */}
       <div className="absolute top-[-5%] left-[-5%] w-[40vw] h-[40vw] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(#f0f0f0_1.5px,transparent_1.5px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] opacity-70" />
+      <div className="absolute inset-0 bg-[radial-gradient(#f0f0f0_1.5px,transparent_1.5px)] bg-size-[32px_32px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] opacity-70" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -58,7 +58,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="hidden lg:block relative h-[560px] xl:h-[620px] w-full"
+            className="hidden lg:block relative h-140 xl:h-155 w-full"
           >
             <div className="absolute top-[0%] left-[5%] w-full h-[95%] bg-zinc-100 rounded-[3rem] overflow-hidden shadow-2xl group border-[1rem] border-white">
               <Image
@@ -88,7 +88,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-5 -left-8 xl:-left-10 w-[200px] xl:w-[240px] h-[280px] xl:h-[320px] bg-red-600 rounded-[2.5rem] border-[0.75rem] border-white shadow-2xl overflow-hidden"
+              className="absolute -bottom-5 -left-8 xl:-left-10 w-50 xl:w-60 h-70 xl:h-80 bg-red-600 rounded-[2.5rem] border-[0.75rem] border-white shadow-2xl overflow-hidden"
             >
               <Image
                 src="/join_now_1.jpg"
@@ -104,7 +104,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            className="lg:hidden relative w-full h-[320px] sm:h-[400px] rounded-[2rem] overflow-hidden border-[0.5rem] border-white shadow-2xl"
+            className="lg:hidden relative w-full h-80 sm:h-100 rounded-[2rem] overflow-hidden border-8 border-white shadow-2xl"
           >
             <Image
               src="/hero-img.jpg"
@@ -112,7 +112,7 @@ export function Hero({ onRegister }: { onRegister: () => void }) {
               fill
               className="object-cover brightness-[0.98]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-zinc-950/40 to-transparent" />
             <div className="absolute bottom-5 left-5 p-3 px-5 bg-white/85 backdrop-blur-xl rounded-2xl border border-white/50 shadow-lg">
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-red-600 flex items-center justify-center text-white">
