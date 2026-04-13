@@ -99,7 +99,10 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply font-sans scroll-smooth overflow-x-hidden;
+  }
+  h1, h2, h3, h4 {
+    text-wrap: balance;
   }
 }
 
