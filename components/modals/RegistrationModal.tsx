@@ -22,8 +22,14 @@ import type { Role } from "@/types/api";
 const registrationSchema = z.object({
   roleId: z.string().min(1, "Please select a role"),
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.email("Invalid email address"),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/,
+      "Password must include uppercase, lowercase, number, and special character"
+    )
 });
 
 type RegistrationData = z.infer<typeof registrationSchema>;
