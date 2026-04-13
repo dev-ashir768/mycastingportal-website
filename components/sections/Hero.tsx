@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function Hero({ onRegister }: { onRegister: () => void }) {
   return (
-    <section className="relative min-h-[100svh] sm:min-h-[90svh] flex items-center pt-28 sm:pt-32 lg:pt-36 pb-16 justify-center overflow-hidden bg-white">
+    <section className="relative min-h-[100svh] sm:min-h-[90svh] flex items-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 justify-center overflow-hidden bg-white">
       {/* Subtle Background */}
       <div className="absolute top-[-5%] left-[-5%] w-[40vw] h-[40vw] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#f0f0f0_1.5px,transparent_1.5px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] opacity-70" />
